@@ -229,7 +229,7 @@ void main()
             b2=1;
             taps=temp;
          }
-         //if( !b2 || !b3 ) puertob[0]=puertob[1]=puertob[2]=puertob[3]=0;
+         if( !b2 || !b3 ) puertob[0]=puertob[1]=puertob[2]=puertob[3]=0;
          output_high(PIN_A3);
          delay_ms(200);
          //pwm_off();

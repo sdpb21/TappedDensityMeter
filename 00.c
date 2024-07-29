@@ -8,25 +8,25 @@ void imprimir(int16 num){
    output_low(PIN_B6);
    output_low(PIN_B7);
    switch(num){
-      case 1: output_low(PIN_B1);output_low(PIN_B2);
+      case 1: output_high(PIN_B1);output_high(PIN_B2);
       break;
-      case 2: output_low(PIN_B0);output_low(PIN_B1);output_low(PIN_B4);output_low(PIN_B5);output_low(PIN_B7);
+      case 2: output_high(PIN_B0);output_high(PIN_B1);output_high(PIN_B4);output_high(PIN_B5);output_high(PIN_B7);
       break;
-      case 3: output_low(PIN_B0);output_low(PIN_B1);output_low(PIN_B2);output_low(PIN_B4);output_low(PIN_B7);
+      case 3: output_high(PIN_B0);output_high(PIN_B1);output_high(PIN_B2);output_high(PIN_B4);output_high(PIN_B7);
       break;
-      case 4: output_low(PIN_B1);output_low(PIN_B2);output_low(PIN_B6);output_low(PIN_B7);
+      case 4: output_high(PIN_B1);output_high(PIN_B2);output_high(PIN_B6);output_high(PIN_B7);
       break;
-      case 5: output_low(PIN_B0);output_low(PIN_B2);output_low(PIN_B4);output_low(PIN_B5);output_low(PIN_B6);
+      case 5: output_high(PIN_B0);output_high(PIN_B2);output_high(PIN_B4);output_high(PIN_B5);output_high(PIN_B6);
       break;
-      case 6: output_low(PIN_B0);output_low(PIN_B2);output_low(PIN_B4);output_low(PIN_B5);output_low(PIN_B6);output_low(PIN_B7);
+      case 6: output_high(PIN_B0);output_high(PIN_B2);output_high(PIN_B4);output_high(PIN_B5);output_high(PIN_B6);output_high(PIN_B7);
       break;
-      case 7: output_low(PIN_B0);output_low(PIN_B1);output_low(PIN_B2);
+      case 7: output_high(PIN_B0);output_high(PIN_B1);output_high(PIN_B2);
       break;
-      case 8: output_low(PIN_B0);output_low(PIN_B1);output_low(PIN_B2);output_low(PIN_B4);output_low(PIN_B5);output_low(PIN_B6);output_low(PIN_B7);
+      case 8: output_high(PIN_B0);output_high(PIN_B1);output_high(PIN_B2);output_high(PIN_B4);output_high(PIN_B5);output_high(PIN_B6);output_high(PIN_B7);
       break;
-      case 9: output_low(PIN_B0);output_low(PIN_B1);output_low(PIN_B2);output_low(PIN_B4);output_low(PIN_B6);output_low(PIN_B7);
+      case 9: output_high(PIN_B0);output_high(PIN_B1);output_high(PIN_B2);output_high(PIN_B4);output_high(PIN_B6);output_high(PIN_B7);
       break;
-      case 0: output_low(PIN_B0);output_low(PIN_B1);output_low(PIN_B2);output_low(PIN_B4);output_low(PIN_B5);output_low(PIN_B6);
+      case 0: output_high(PIN_B0);output_high(PIN_B1);output_high(PIN_B2);output_high(PIN_B4);output_high(PIN_B5);output_high(PIN_B6);
       break;
    }
 }

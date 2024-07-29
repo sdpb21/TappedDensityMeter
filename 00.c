@@ -238,7 +238,7 @@ void main()
       }else{
          if(b4==0){
             b4=1;
-            output_high(PIN_C7);//para reset y enable del driver....
+            output_high(PIN_A7);//para reset y enable del driver....
             pwm_set_frequency(8000);//1600 para 1 tap por segundo
             pwm_set_duty_percent(500);
             while(saltos>0){//while saltos

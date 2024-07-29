@@ -60,10 +60,10 @@ void main()
    output_low(PIN_A7);//para reset y enable del driver....
    while(true){
       if( !b2 || !b3 ){
-      output_bit(PIN_A0,0);
-      output_bit(PIN_A1,1);
-      output_bit(PIN_A2,1);
-      output_bit(PIN_A3,1);
+      output_low(PIN_A0);
+      output_high(PIN_A1);
+      output_high(PIN_A2);
+      output_high(PIN_A3);
       //output_a(0b00001110);
       if(!input(PIN_A4)){ 
          //++c1;
@@ -76,7 +76,7 @@ void main()
          }else{
             puertob[0]=puertob[1]; puertob[1]=puertob[2]; puertob[2]=puertob[3];puertob[3]=1;//1
          }*/
-         output_bit(PIN_A0,1);
+         output_high(PIN_A0);
          delay_ms(200);
       }
       if(!input(PIN_A5)){
@@ -90,7 +90,7 @@ void main()
          }else{
             puertob[0]=puertob[1]; puertob[1]=puertob[2]; puertob[2]=puertob[3];puertob[3]=2;//2
          }*/
-         output_bit(PIN_A0,1);
+         output_high(PIN_A0);
          delay_ms(200);
       }
       if(!input(PIN_A6)){
@@ -104,11 +104,11 @@ void main()
          }else{
             puertob[0]=puertob[1]; puertob[1]=puertob[2]; puertob[2]=puertob[3];puertob[3]=3;//3
          }*/
-         output_bit(PIN_A0,1);
+         output_high(PIN_A0);
          delay_ms(200);
       }
-      output_bit(PIN_A0,1);
-      output_bit(PIN_A1,0);
+      output_high(PIN_A0);
+      output_low(PIN_A1);
       //output_a(0b00001101);
       if(!input(PIN_A4)){
          //++c1;
@@ -121,7 +121,7 @@ void main()
          }else{
             puertob[0]=puertob[1]; puertob[1]=puertob[2]; puertob[2]=puertob[3];puertob[3]=4;//4
          }*/
-         output_bit(PIN_A1,1);
+         output_high(PIN_A1);
          delay_ms(200);
       }
       if(!input(PIN_A5)){
@@ -135,7 +135,7 @@ void main()
          }else{
             puertob[0]=puertob[1]; puertob[1]=puertob[2]; puertob[2]=puertob[3];puertob[3]=5;//5
          }*/
-         output_bit(PIN_A1,1);
+         output_high(PIN_A1);
          delay_ms(200);
       }
       if(!input(PIN_A6)){
@@ -149,11 +149,11 @@ void main()
          }else{
             puertob[0]=puertob[1]; puertob[1]=puertob[2]; puertob[2]=puertob[3];puertob[3]=6;//6
          }*/
-         output_bit(PIN_A1,1);
+         output_high(PIN_A1);
          delay_ms(200);
       }
-      output_bit(PIN_A1,1);
-      output_bit(PIN_A2,0);
+      output_high(PIN_A1);
+      output_low(PIN_A2);
       //output_a(0b00001011);
       if(!input(PIN_A4)){
          //++c1;
@@ -166,7 +166,7 @@ void main()
          }else{
             puertob[0]=puertob[1]; puertob[1]=puertob[2]; puertob[2]=puertob[3];puertob[3]=7;//7
          }*/
-         output_bit(PIN_A2,1);
+         output_high(PIN_A2);
          delay_ms(200);
       }
       if(!input(PIN_A5)){
@@ -180,7 +180,7 @@ void main()
          }else{
             puertob[0]=puertob[1]; puertob[1]=puertob[2]; puertob[2]=puertob[3];puertob[3]=8;//8
          }*/
-         output_bit(PIN_A2,1);
+         output_high(PIN_A2);
          delay_ms(200);
       }
       if(!input(PIN_A6)){
@@ -194,11 +194,11 @@ void main()
          }else{
             puertob[0]=puertob[1]; puertob[1]=puertob[2]; puertob[2]=puertob[3];puertob[3]=9;//9
          }*/
-         output_bit(PIN_A2,1);
+         output_high(PIN_A2);
          delay_ms(200);
       }
-      output_bit(PIN_A2,1);
-      output_bit(PIN_A3,0);
+      output_high(PIN_A2);
+      output_low(PIN_A3);
       //output_a(0b00000111);
       if(!input(PIN_A5)){
          //++c1;
@@ -211,7 +211,7 @@ void main()
          }else{
             puertob[0]=puertob[1]; puertob[1]=puertob[2]; puertob[2]=puertob[3];puertob[3]=0;//0
          }*/
-         output_bit(PIN_A3,1);
+         output_high(PIN_A3);
          delay_ms(200);
       }
       if(!input(PIN_A6)){
@@ -230,7 +230,7 @@ void main()
             taps=temp;
          }
          //if( !b2 || !b3 ) puertob[0]=puertob[1]=puertob[2]=puertob[3]=0;
-         output_bit(PIN_A3,1);
+         output_high(PIN_A3);
          delay_ms(200);
          //pwm_off();
          //output_low(PIN_C7);//para reset y enable del driver....

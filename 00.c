@@ -9,6 +9,7 @@ void imprimir(int16 num){
    output_low(PIN_B5);
    output_low(PIN_B6);
    output_low(PIN_B7);
+
    switch(num){
       case 1: output_low(PIN_B1);output_low(PIN_B2);
       break;
@@ -32,191 +33,225 @@ void imprimir(int16 num){
       break;
    }
 }
-static BOOLEAN b2=0, b3=0, b4=0;
+
+static BOOLEAN b2=0, b3=0, b4=0;	// b2 para indicar que se ingresó la catidad de saltos
 static int16 temp=0,c1=0, taps=0, saltos=0, puertob[4]={0,0,0,0};
 
 void main()
 {
+
    pwm_off();
    output_low(PIN_C7);//para reset y enable del driver....
+
    while(true){
-      if( !b2 || !b3 ){
-      /*output_bit(PIN_A0,0);
-      output_bit(PIN_A1,1);
-      output_bit(PIN_A2,1);
-      output_bit(PIN_A3,1);*/
-      output_a(0b00001110);
-      if(!input(PIN_A4)){ 
-         //++c1;
-         puertob[3]=puertob[2];
-         puertob[2]=puertob[1];
-         puertob[1]=puertob[0];
-         puertob[0]=1;
-         /*if(c1<=4){ 
-            puertob[c1-1]=1;//1
-         }else{
-            puertob[0]=puertob[1]; puertob[1]=puertob[2]; puertob[2]=puertob[3];puertob[3]=1;//1
-         }*/
-         output_bit(PIN_A0,1);
-         delay_ms(200);
-      }
-      if(!input(PIN_C0)){
-         //++c1;
-         puertob[3]=puertob[2];
-         puertob[2]=puertob[1];
-         puertob[1]=puertob[0];
-         puertob[0]=2;
-         /*if(c1<=4){ 
-            puertob[c1-1]=2;//2
-         }else{
-            puertob[0]=puertob[1]; puertob[1]=puertob[2]; puertob[2]=puertob[3];puertob[3]=2;//2
-         }*/
-         output_bit(PIN_A0,1);
-         delay_ms(200);
-      }
-      if(!input(PIN_C6)){
-         //++c1;
-         puertob[3]=puertob[2];
-         puertob[2]=puertob[1];
-         puertob[1]=puertob[0];
-         puertob[0]=3;
-         /*if(c1<=4){ 
-            puertob[c1-1]=3;//3
-         }else{
-            puertob[0]=puertob[1]; puertob[1]=puertob[2]; puertob[2]=puertob[3];puertob[3]=3;//3
-         }*/
-         output_bit(PIN_A0,1);
-         delay_ms(200);
-      }
-      /*output_bit(PIN_A0,1);
-      output_bit(PIN_A1,0);*/
-      output_a(0b00001101);
-      if(!input(PIN_A4)){
-         //++c1;
-         puertob[3]=puertob[2];
-         puertob[2]=puertob[1];
-         puertob[1]=puertob[0];
-         puertob[0]=4;
-         /*if(c1<=4){ 
-            puertob[c1-1]=4;//4
-         }else{
-            puertob[0]=puertob[1]; puertob[1]=puertob[2]; puertob[2]=puertob[3];puertob[3]=4;//4
-         }*/
-         output_bit(PIN_A1,1);
-         delay_ms(200);
-      }
-      if(!input(PIN_C0)){
-         //++c1;
-         puertob[3]=puertob[2];
-         puertob[2]=puertob[1];
-         puertob[1]=puertob[0];
-         puertob[0]=5;
-         /*if(c1<=4){ 
-            puertob[c1-1]=5;//5
-         }else{
-            puertob[0]=puertob[1]; puertob[1]=puertob[2]; puertob[2]=puertob[3];puertob[3]=5;//5
-         }*/
-         output_bit(PIN_A1,1);
-         delay_ms(200);
-      }
-      if(!input(PIN_C6)){
-         //++c1;
-         puertob[3]=puertob[2];
-         puertob[2]=puertob[1];
-         puertob[1]=puertob[0];
-         puertob[0]=6;
-         /*if(c1<=4){ 
-            puertob[c1-1]=6;//6
-         }else{
-            puertob[0]=puertob[1]; puertob[1]=puertob[2]; puertob[2]=puertob[3];puertob[3]=6;//6
-         }*/
-         output_bit(PIN_A1,1);
-         delay_ms(200);
-      }
-      /*output_bit(PIN_A1,1);
-      output_bit(PIN_A2,0);*/
-      output_a(0b00001011);
-      if(!input(PIN_A4)){
-         //++c1;
-         puertob[3]=puertob[2];
-         puertob[2]=puertob[1];
-         puertob[1]=puertob[0];
-         puertob[0]=7;
-         /*if(c1<=4){ 
-            puertob[c1-1]=7;//7
-         }else{
-            puertob[0]=puertob[1]; puertob[1]=puertob[2]; puertob[2]=puertob[3];puertob[3]=7;//7
-         }*/
-         output_bit(PIN_A2,1);
-         delay_ms(200);
-      }
-      if(!input(PIN_C0)){
-         //++c1;
-         puertob[3]=puertob[2];
-         puertob[2]=puertob[1];
-         puertob[1]=puertob[0];
-         puertob[0]=8;
-         /*if(c1<=4){ 
-            puertob[c1-1]=8;//8
-         }else{
-            puertob[0]=puertob[1]; puertob[1]=puertob[2]; puertob[2]=puertob[3];puertob[3]=8;//8
-         }*/
-         output_bit(PIN_A2,1);
-         delay_ms(200);
-      }
-      if(!input(PIN_C6)){
-         //++c1;
-         puertob[3]=puertob[2];
-         puertob[2]=puertob[1];
-         puertob[1]=puertob[0];
-         puertob[0]=9;
-         /*if(c1<=4){ 
-            puertob[c1-1]=9;//9
-         }else{
-            puertob[0]=puertob[1]; puertob[1]=puertob[2]; puertob[2]=puertob[3];puertob[3]=9;//9
-         }*/
-         output_bit(PIN_A2,1);
-         delay_ms(200);
-      }
-      /*output_bit(PIN_A2,1);
-      output_bit(PIN_A3,0);*/
-      output_a(0b00000111);
-      if(!input(PIN_C0)){
-         //++c1;
-         puertob[3]=puertob[2];
-         puertob[2]=puertob[1];
-         puertob[1]=puertob[0];
-         puertob[0]=0;
-         /*if(c1<=4){ 
-            puertob[c1-1]=0;//0
-         }else{
-            puertob[0]=puertob[1]; puertob[1]=puertob[2]; puertob[2]=puertob[3];puertob[3]=0;//0
-         }*/
-         output_bit(PIN_A3,1);
-         delay_ms(200);
-      }
-      if(!input(PIN_C6)){
-         /*if(c1==1) taps=puertob[0];
-         if(c1==2) taps=puertob[0]*10+puertob[1];
-         if(c1==3) taps=puertob[0]*100+puertob[1]*10+puertob[2];
-         if(c1>=4) taps=puertob[0]*1000+puertob[1]*100+puertob[2]*10+puertob[3];*/
-         temp=puertob[3]*1000+puertob[2]*100+puertob[1]*10+puertob[0];
-         if(b2==1){
-            saltos=temp;
-            b3=1;
-            temp=tabla(taps);
-         }
-         if( temp>=100 && temp<=300 && b2==0 ){ 
-            b2=1;
-            taps=temp;
-         }
-         //if( !b2 || !b3 ) puertob[0]=puertob[1]=puertob[2]=puertob[3]=0;
-         output_bit(PIN_A3,1);
-         delay_ms(200);
-         //pwm_off();
-         //output_low(PIN_C7);//para reset y enable del driver....
-      }
-      }else{
+
+	// Primero leo la frecuencia y la cantidad de saltos
+
+	if( !b2 || !b3 ){
+
+		/*output_bit(PIN_A0,0);
+		output_bit(PIN_A1,1);
+		output_bit(PIN_A2,1);
+		output_bit(PIN_A3,1);*/
+
+		// bloque de codigo para el panel numérico
+
+		output_a(0b00001110);	// primera fila, números del 1 al 3
+
+		if(!input(PIN_A4)){ 
+			//++c1;
+			puertob[3]=puertob[2];	// para ir rotando los números en el display de 4 dígitos
+			puertob[2]=puertob[1];
+			puertob[1]=puertob[0];
+			puertob[0]=1;		// guarda número 1
+			/*if(c1<=4){ 
+				puertob[c1-1]=1;//1
+			}else{
+				puertob[0]=puertob[1]; puertob[1]=puertob[2]; puertob[2]=puertob[3];puertob[3]=1;//1
+			}*/
+			output_bit(PIN_A0,1); // vuelvo 1 para la siguiente lectura
+			delay_ms(200);
+		}
+
+      		if(!input(PIN_C0)){
+         		//++c1;
+         		puertob[3]=puertob[2];	// para ir rotando los números en el display de 4 dígitos
+         		puertob[2]=puertob[1];
+         		puertob[1]=puertob[0];
+         		puertob[0]=2;		// guarda el número 2
+         		/*if(c1<=4){ 
+				puertob[c1-1]=2;//2
+         		}else{
+				puertob[0]=puertob[1]; puertob[1]=puertob[2]; puertob[2]=puertob[3];puertob[3]=2;//2
+			}*/
+			output_bit(PIN_A0,1);	// cambio a alto para la siguiente lectura
+			delay_ms(200);
+		}
+
+		if(!input(PIN_C6)){
+			//++c1;
+			puertob[3]=puertob[2];	// para ir rotando los números en el display de 4 dígitos
+			puertob[2]=puertob[1];
+			puertob[1]=puertob[0];
+			puertob[0]=3;		// guarda el número 3
+			/*if(c1<=4){
+				puertob[c1-1]=3;//3
+			}else{
+				puertob[0]=puertob[1]; puertob[1]=puertob[2]; puertob[2]=puertob[3];puertob[3]=3;//3
+			}*/
+			output_bit(PIN_A0,1);	// cambio a alto para la siguiente lectura
+			delay_ms(200);
+		}
+
+		/*output_bit(PIN_A0,1);
+		output_bit(PIN_A1,0);*/
+
+		output_a(0b00001101);	// segunda fila, números del 4 al 6
+
+		if(!input(PIN_A4)){
+			//++c1;
+			puertob[3]=puertob[2];
+			puertob[2]=puertob[1];
+			puertob[1]=puertob[0];
+			puertob[0]=4;		// guarda el número 4
+			/*if(c1<=4){ 
+				puertob[c1-1]=4;//4
+			}else{
+				puertob[0]=puertob[1]; puertob[1]=puertob[2]; puertob[2]=puertob[3];puertob[3]=4;//4
+			}*/
+			output_bit(PIN_A1,1);	// cambio a alto para la siguiente lectura
+			delay_ms(200);
+		}
+
+		if(!input(PIN_C0)){
+			//++c1;
+			puertob[3]=puertob[2];
+			puertob[2]=puertob[1];
+			puertob[1]=puertob[0];
+			puertob[0]=5;		// guarda el número 5
+			/*if(c1<=4){
+				puertob[c1-1]=5;//5
+			}else{
+				puertob[0]=puertob[1]; puertob[1]=puertob[2]; puertob[2]=puertob[3];puertob[3]=5;//5
+			}*/
+			output_bit(PIN_A1,1);	// cambio a alto para la siguiente lectura
+			delay_ms(200);
+		}
+
+		if(!input(PIN_C6)){
+			//++c1;
+			puertob[3]=puertob[2];
+			puertob[2]=puertob[1];
+			puertob[1]=puertob[0];
+			puertob[0]=6;	// guarda el número 6
+			/*if(c1<=4){
+				puertob[c1-1]=6;//6
+			}else{
+				puertob[0]=puertob[1]; puertob[1]=puertob[2]; puertob[2]=puertob[3];puertob[3]=6;//6
+			}*/
+			output_bit(PIN_A1,1);	// cambio a alto para la siguiente lectura
+			delay_ms(200);
+		}
+
+		/*output_bit(PIN_A1,1);
+		output_bit(PIN_A2,0);*/
+
+		output_a(0b00001011);	// siguiente fila, números del 7 al 9
+
+		if(!input(PIN_A4)){
+			//++c1;
+			puertob[3]=puertob[2];
+			puertob[2]=puertob[1];
+			puertob[1]=puertob[0];
+			puertob[0]=7;		// guarda el número 7
+			/*if(c1<=4){
+				puertob[c1-1]=7;//7
+			}else{
+				puertob[0]=puertob[1]; puertob[1]=puertob[2]; puertob[2]=puertob[3];puertob[3]=7;//7
+			}*/
+			output_bit(PIN_A2,1);	// cambio a alto para la siguiente lectura
+			delay_ms(200);
+		}
+
+		if(!input(PIN_C0)){
+			//++c1;
+			puertob[3]=puertob[2];
+			puertob[2]=puertob[1];
+			puertob[1]=puertob[0];
+			puertob[0]=8;		// guarda el número 8
+			/*if(c1<=4){ 
+				puertob[c1-1]=8;//8
+			}else{
+				puertob[0]=puertob[1]; puertob[1]=puertob[2]; puertob[2]=puertob[3];puertob[3]=8;//8
+			}*/
+			output_bit(PIN_A2,1);	// cambio a alto para la siguiente lectura
+			delay_ms(200);
+		}
+
+		if(!input(PIN_C6)){
+			//++c1;
+			puertob[3]=puertob[2];
+			puertob[2]=puertob[1];
+			puertob[1]=puertob[0];
+			puertob[0]=9;		// guarda el número 9
+			/*if(c1<=4){
+				puertob[c1-1]=9;//9
+			}else{
+				puertob[0]=puertob[1]; puertob[1]=puertob[2]; puertob[2]=puertob[3];puertob[3]=9;//9
+			}*/
+			output_bit(PIN_A2,1);	// cambio a alto para la siguiente lectura
+			delay_ms(200);
+		}
+
+		/*output_bit(PIN_A2,1);
+		output_bit(PIN_A3,0);*/
+
+      		output_a(0b00000111);		// siguiente fila, cero y tecla para "Enter"
+
+		if(!input(PIN_C0)){
+			//++c1;
+			puertob[3]=puertob[2];
+			puertob[2]=puertob[1];
+			puertob[1]=puertob[0];
+			puertob[0]=0;		// guarda el número 0
+			/*if(c1<=4){
+				puertob[c1-1]=0;//0
+			}else{
+				puertob[0]=puertob[1]; puertob[1]=puertob[2]; puertob[2]=puertob[3];puertob[3]=0;//0
+			}*/
+			output_bit(PIN_A3,1);	// cambio a alto para la siguiente lectura
+			delay_ms(200);
+		}
+
+		if(!input(PIN_C6)){
+			/*if(c1==1) taps=puertob[0];
+			if(c1==2) taps=puertob[0]*10+puertob[1];
+			if(c1==3) taps=puertob[0]*100+puertob[1]*10+puertob[2];
+			if(c1>=4) taps=puertob[0]*1000+puertob[1]*100+puertob[2]*10+puertob[3];*/
+
+			temp=puertob[3]*1000+puertob[2]*100+puertob[1]*10+puertob[0];	// convierte número en el display a entero de 2 bytes
+
+			if(b2==1){
+				
+				saltos=temp;
+				b3=1;
+				temp=tabla(taps);
+			}
+
+			if( temp>=100 && temp<=300 && b2==0 ){ 
+
+				b2=1;
+				taps=temp;
+			}
+
+			//if( !b2 || !b3 ) puertob[0]=puertob[1]=puertob[2]=puertob[3]=0;
+			output_bit(PIN_A3,1);
+			delay_ms(200);
+			//pwm_off();
+			//output_low(PIN_C7);//para reset y enable del driver....
+		}
+	}else{	// del if( !b2 || !b3 )
+
          if(b4==0){
             b4=1;
             output_high(PIN_C7);//para reset y enable del driver....

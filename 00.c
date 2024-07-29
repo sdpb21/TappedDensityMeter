@@ -16,7 +16,7 @@ void imprimir(int16 num){
       break;
       case 4: output_high(PIN_B1);output_high(PIN_B2);output_high(PIN_B6);output_high(PIN_B7);
       break;
-      case 5: output_high(PIN_B0);output_high(PIN_B2);output_high(PIN_B4);output_high(PIN_B5);output_high(PIN_B6);
+      case 5: output_high(PIN_B0);output_high(PIN_B2);output_high(PIN_B4);output_high(PIN_B6);output_high(PIN_B7);
       break;
       case 6: output_high(PIN_B0);output_high(PIN_B2);output_high(PIN_B4);output_high(PIN_B5);output_high(PIN_B6);output_high(PIN_B7);
       break;

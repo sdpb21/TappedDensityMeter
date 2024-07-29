@@ -34,7 +34,7 @@ void imprimir(int16 num){
    }
 }
 
-static BOOLEAN b2=0, b3=0, b4=0;	// b2 para indicar que se ingresó la catidad de saltos
+static BOOLEAN b2=0, b3=0, b4=0;	// b2 para indicar que se ingresó la frecuencia y b3 la cantidad de saltos
 static int16 temp=0,c1=0, taps=0, saltos=0, puertob[4]={0,0,0,0};
 
 void main()

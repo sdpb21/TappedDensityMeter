@@ -48,7 +48,7 @@ int16 tabla(int16 taps1){
             case 113: return 4135;//listo
             case 114: return 4076;//listo
             case 115: return 4019;//listo
-            case 116: return 3963;//listo
+            case 147: return 3963;//listo
          }//fin switch taps
 }
 static BOOLEAN b2=0, b3=0, b4=0;
